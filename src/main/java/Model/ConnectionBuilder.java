@@ -10,5 +10,5 @@ package Model;
  * @author nawatsomnuek
  */
 public class ConnectionBuilder {
-    
+
 }
