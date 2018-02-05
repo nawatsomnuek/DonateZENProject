@@ -5,10 +5,25 @@
  */
 package Model;
 
+import static java.lang.Character.UnicodeBlock.forName;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
  * @author nawatsomnuek
  */
 public class ConnectionBuilder {
-    
+    public static Connection getConnection(){
+        Connection con = null;
+       
+        try {
+           Class.forName("com.mysql.jdbc.Driver");
+           con = DriverManager.getConnection("");  
+        } catch (Exception e) {
+            
+        }
+    return con;
+    }
+   
 }
