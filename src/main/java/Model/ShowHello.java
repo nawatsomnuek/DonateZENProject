@@ -29,7 +29,7 @@ public class ShowHello {
 
     public static String getDB() throws SQLException, ClassNotFoundException {
         String COLLECT_DATA = "SELECT * FROM CollectWord";
-        Connection con= ConnectionBuilder.connect();
+        Connection con= ConnectionBuilder.getConnection();
         String wordd = "";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(COLLECT_DATA);

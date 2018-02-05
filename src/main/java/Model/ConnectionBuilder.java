@@ -5,10 +5,27 @@
  */
 package Model;
 
+import static java.lang.Character.UnicodeBlock.forName;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
  * @author nawatsomnuek
  */
 public class ConnectionBuilder {
 
+    public static Connection getConnection() {
+        Connection con = null;
+        String url = "jdbc:mysql://localhost:3306/showHello";
+        String username = "root";
+        String password = "a";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection(url, username, password);
+        } catch (Exception e) {
+
+        }
+        return con;
+    }
 }
