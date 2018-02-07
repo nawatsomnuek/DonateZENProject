@@ -6,6 +6,7 @@
 package Model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,11 +29,14 @@ public class ShowHello {
     }
 
     public static String getDB() throws SQLException, ClassNotFoundException {
-        String COLLECT_DATA = "SELECT * FROM CollectWord";
+        String COLLECT_DATA = "SELECT * FROM CollectWord WHERE idCollectWord=1";
         Connection con= ConnectionBuilder.getConnection();
         String wordd = "";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(COLLECT_DATA);
+        if (con == null) {
+            System.out.println("Connection is null");
+        }
+        PreparedStatement pstm = con.prepareStatement(COLLECT_DATA);
+        ResultSet rs = pstm.executeQuery(COLLECT_DATA);
         while(rs.next()){
             wordd = rs.getString("word");
         }
